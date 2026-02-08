@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+    <title>Bookstore</title>
+</head>
+
+<body>
+    <script src="javascript.js"></script>
+    <div class="wrapper">
+
+        <!-- AUTH MODAL -->
+        <div class="auth-modal" id="authModal">
+            <div class="auth-box">
+
+                <span class="close" onclick="closeAuth()">&times;</span>
+
+                <!-- LOGIN -->
+                <div class="form login active">
+                    <h2>Login</h2>
+
+                    <div class="input-box">
+                        <input type="email" required>
+                        <label>Email</label>
+                        <i class="bx bx-envelope icon"></i>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="password" required>
+                        <label>Password</label>
+                        <i class="bx bx-lock icon"></i>
+                    </div>
+
+                    <div class="options">
+                        <label><input type="checkbox"> Remember me</label>
+                        <a href="#">Forgot Password?</a>
+                    </div>
+
+                    <button class="auth-btn" onclick="loginSuccess()">Login</button>
+
+                    <p class="switch">
+                        Don't have an account?
+                        <a href="#" onclick="showRegister()">Register</a>
+                    </p>
+                </div>
+
+                <!-- REGISTER -->
+                <div class="form register">
+                    <h2>Register</h2>
+
+                    <div class="input-box">
+                        <input type="text" required>
+                        <label>Username</label>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="email" required>
+                        <label>Email</label>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="password" required>
+                        <label>Password</label>
+                    </div>
+
+                    <button class="auth-btn">Register</button>
+
+                    <p class="switch">
+                        Already have an account?
+                        <a href="#" onclick="showLogin()">Login</a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>BookHeaven</p>
+            </div>
+
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="#featured">Featured Books</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#about">About Us</a></li>
+                </ul>
+            </div>
+
+            <div class="search-box">
+                <i class="ri-search-line"></i>
+                <input type="text" placeholder="Search books..." />
+            </div>
+
+            <div class="nav-icons">
+                <i class='bx bx-user' id="userIcon"
+                    style="font-size: 2rem; color: white; cursor: pointer; margin-right: 18px;"></i>
+                    
+                <i class='bx bx-cart' style="font-size: 2rem; color: white; cursor: pointer; margin-right: 18px;"></i>
+                <a href="index.html" id="loginLink" title="Log in"
+                    style="text-decoration:none;color:inherit;">
+                    <i class='bx bx-log-in' style="font-size: 2rem; color: white; cursor: pointer;"></i>
+                </a>
+            </div>
+            <div class="nav-menu-btn" id="menuBtn" title="Management Dashboard">
+                <i class="bx bx-menu" style="cursor: pointer;"></i>
+                <a href="book_management.html"></a>
+
+            </div>
+        </nav>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+        <div class="content-wrapper">
+
+            <!-- Trusted by section -->
+            <div class="trusted-section">
+                <div class="avatar-group">
+                    <img class="avatar" src="https://randomuser.me/api/portraits/men/32.jpg">
+                    <img class="avatar" src="https://randomuser.me/api/portraits/women/44.jpg">
+                    <img class="avatar" src="https://randomuser.me/api/portraits/men/56.jpg">
+                    <img class="avatar" src="https://randomuser.me/api/portraits/women/68.jpg">
+                </div>
+                <p class="trusted-text">Trusted by 50,000+ Book Lovers</p>
+            </div>
+
+            <!-- Heading -->
+            <h1 class="main-heading">
+                <span class="heading-bold">Discover Your</span>
+                <span class="heading-light">Next Great Read</span>
+            </h1>
+
+            <!-- Button -->
+            <button class="explore-button">
+                <span>EXPLORE COLLECTION</span>
+                <i class="ri-arrow-right-line arrow-icon"></i>
+            </button>
+
+        </div>
+
+        <!-- Side text -->
+        <div class="side-text">
+            <p>
+                Curated selections from classic literature to contemporary bestsellers, delivered with passion and
+                expertise since 1995.
+            </p>
+        </div>
+    </div>
+
+
+    <section id="Featured Books" class="Featured Books-section">
+        <div class="featured-section">
+
+            <!-- Header -->
+            <div class="section-header">
+                <div class="badge">
+                    <i class="ri-book-mark-line"></i>
+                    <span>Curator's Selection</span>
+                </div>
+                <h2 class="section-title">Featured<br>This Month</h2>
+                <div class="title-underline"></div>
+            </div>
+
+            <!-- Description -->
+            <div class="section-description">
+                <p>Hand-picked selections from our expert curators, representing the finest in contemporary and classic
+                    literature</p>
+            </div>
+
+
+
+            <!-- Editor's Choice -->
+            <div class="editors-choice">
+                <div class="editors-choice-header">
+                    <div class="line-left"></div>
+                    <h3>Editor's Choice</h3>
+                    <div class="line-right"></div>
+                </div>
+
+                <div class="featured-card">
+                    <div class="card-image">
+                        <img alt="The Midnight Library"
+                            src="https://readdy.ai/api/search-image?query=bestselling%20contemporary%20fiction%20book%20cover%20the%20midnight%20library%20by%20matt%20haig%20award%20winning%20design%20colorful%20doors%20and%20books%20theme%20professional%20publishing%20design%20inspiring%20and%20uplifting%20artwork%20simple%20clean%20background&amp;width=400&amp;height=600&amp;seq=book001&amp;orientation=portrait">
+                        <div class="featured-badge">Most Compelling Read</div>
+                    </div>
+
+                    <div class="card-content">
+                        <div class="rating">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <span>(2,847 reviews)</span>
+                        </div>
+
+                        <h3 class="book-title">The Midnight Library</h3>
+                        <p class="book-author">by <span>Matt Haig</span></p>
+                        <p class="book-description">Between life and death there is a library, and within that library,
+                            the shelves go on forever. Every book provides a chance to try another life you could have
+                            lived. A dazzling novel about all the choices that go into a life well lived.</p>
+
+                        <div class="price-stock">
+                            <div class="price">$24.99</div>
+                            <div class="separator"></div>
+                            <div class="stock-info">
+                                <div>In Stock</div>
+                                <div>Ships within 24 hours</div>
+                            </div>
+                        </div>
+
+                        <button class="view-details-btn">
+                            <span>View Details</span>
+                            <i class="ri-arrow-right-line"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Arrivals -->
+            <div class="new-arrivals">
+                <div class="section-header-line">
+                    <div class="line-left"></div>
+                    <h3>New Arrivals</h3>
+                    <div class="line-right"></div>
+                </div>
+
+                <div class="books-grid">
+                    <!-- Book 1 -->
+                    <a href="songkara.html" class="book-card-link">
+                        <div class="book-card">
+                            <div class="book-image">
+                                <img alt=""
+                                    src="https://cdn.prod.website-files.com/617235cde0463e5aa8d3dc95/6752d6000202940c243363bf_storm.jpg">
+                                <div class="new-badge">NEW ARRIVAL</div>
+                            </div>
+                            <div class="book-details">
+                                <div>
+                                    <h4>សង្ឃរា</h4>
+                                    <p>by <span>Mao Somnang</span></p>
+                                    <div class="stars">
+                                        <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+                                            class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+                                            class="ri-star-fill"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="book-price">$7.5</div>
+                                    <button class="add-cart-btn" onclick="event.stopPropagation();">
+                                        <span>Add to Cart</span>
+                                        <i class="ri-shopping-cart-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Book 2 -->
+                    <a href="tbong.html" class="book-card-link">
+                        <div class="book-card">
+                            <div class="book-image">
+                                <img alt=""
+                                    src="https://cdn.prod.website-files.com/617235cde0463e5aa8d3dc95/68f0a4f6faa3d2af1692348e_Final%20Front%20Cover%20(1)-p-1080.png">
+                                <div class="new-badge">NEW ARRIVAL</div>
+                            </div>
+                        <div class="book-details">
+                            <div>
+                                <h4>ចិញ្ចៀនត្បូងមរកត</h4>
+                                <p>by <span>Mao Chanreaksmey</span></p>
+                                <div class="stars">
+                                    <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+                                        class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="book-price">$8</div>
+                                <button class="add-cart-btn" onclick="event.stopPropagation();">
+                                    <span>Add to Cart</span>
+                                    <i class="ri-shopping-cart-line"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+
+
+                <!-- Book 3 -->
+                <div class="book-card">
+                    <div class="book-image">
+                        <img alt=""
+                            src="https://cdn.prod.website-files.com/617235cde0463e5aa8d3dc95/61948411a4e6471b84f931de_sky.jpg">
+                        <div class="new-badge">NEW ARRIVAL</div>
+                    </div> 
+                    <div class="book-details">
+                        <div>
+                            <h4>នភាល័យ</h4>
+                            <p>by <span>Mao Somnang</span></p>
+                            <div class="stars">
+                                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                                
+
+                            </div>
+                        </div>
+                        <div>
+                            <div class="book-price">$8</div>
+                            <button class="add-cart-btn">
+                                <span>Add to Cart</span>
+                                <i class="ri-shopping-cart-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Book 4 -->
+                    <div class="book-card">
+                        <div class="book-image">
+                            <img alt=""
+                                src="https://cdn.prod.website-files.com/617235cde0463e5aa8d3dc95/6381bd8299a006355d85d4a4_mock%20up%20new%20day%20gimp1.png">
+                            <div class="new-badge">NEW ARRIVAL</div>
+                        </div>
+                    <div class="book-details">
+                        <div>
+                            <h4>ថ្ងៃថ្មីនៅតែមាន</h4>
+                            <p>by <span>Thun thavry</span></p>
+                            <div class="stars">
+                                <i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                                    
+                            </div>
+                        </div>
+                        <div>
+                            <div class="book-price">$8</div>
+                            <button class="add-cart-btn">
+                                <span>Add to Cart</span>
+                                <i class="ri-shopping-cart-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+
+
+
+
+    <section id="categories" class="categories-section">
+
+        <div class="section-border top"></div>
+        <div class="section-border bottom"></div>
+
+        <div class="container">
+            <!-- Header -->
+            <div class="categories-header">
+                <div class="header-left">
+                    <div class="label">
+                        <i class="ri-book-open-line"></i>
+                        <span>Literary Collections</span>
+                    </div>
+                    <h2>
+                        Browse By<br>
+                        Your Favorite<br>
+                        Genres
+                    </h2>
+                    <div class="accent-line"></div>
+                </div>
+
+                <p class="header-text">
+                    From timeless classics to modern masterpieces, explore our meticulously organized collections
+                    spanning every literary tradition
+                </p>
+            </div>
+
+            <!-- Grid -->
+            <div class="categories-grid">
+                <!-- Card -->
+            
+                <div class="category-card">
+                    <div class="image-wrapper">
+                        <img src="https://i.pinimg.com/736x/5a/9a/a2/5a9aa25989be9b6714f28d9bcdc8fa4b.jpg"
+                            alt="Horror">
+                        <div class="overlay"></div>
+
+                        <div class="content">
+                            <div class="line"></div>
+                            <h3>Horror</h3>
+                        </div>
+
+
+                        <div class="arrow">
+                            <i class="ri-arrow-right-line"></i>
+                        </div>
+                    </div>
+                    <div class="top-accent"></div>
+                </div>
+
+                <!-- Duplicate cards -->
+                <div class="category-card">
+                    <div class="image-wrapper">
+                        <img src="https://cdn.prod.website-files.com/617235cde0463e5aa8d3dc95/61948a68f4ef39b30f4c39c3_diary.jpg"
+                            alt="Novel">
+                        <div class="overlay"></div>
+                        <div class="content">
+                            <div class="line"></div>
+                            <h3>Novel</h3>
+                        </div>
+                        <div class="arrow"><i class="ri-arrow-right-line"></i></div>
+                    </div>
+                    <div class="top-accent"></div>
+                </div>
+
+                <div class="category-card">
+                    <div class="image-wrapper">
+                        <img
+                            src="https://i.pinimg.com/736x/06/64/8d/06648ddd17f26f1a1123511f6669a7ba.jpg">
+                        alt="Mystery">
+                        <div class="overlay"></div>
+                        <div class="content">
+                            <div class="line"></div>
+                            <h3>Mystery</h3>
+                        </div>
+                        <div class="arrow"><i class="ri-arrow-right-line"></i></div>
+                    </div>
+                    <div class="top-accent"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <section id="about" class="about-section">
+        <div class="section-border top"></div>
+        <div class="section-border bottom"></div>
+
+        <div class="container">
+            <div class="about-grid">
+                <!-- LEFT CONTENT -->
+                <div class="about-text">
+                    <div class="est-badge">
+                        <i class="ri-building-2-line"></i>
+                        <span>EST. 1995</span>
+                    </div>
+
+                    <h2>
+                        A Legacy of<br>
+                        Literary Excellence
+                    </h2>
+
+                    <div class="accent-line"></div>
+
+                    <p>
+                        Since 2024, BookHaven has been a sanctuary for book lovers seeking carefully curated selections
+                        and personalized recommendations. We believe every reader deserves to discover stories that
+                        resonate, inspire, and transform.
+                    </p>
+
+                    <p class="muted">
+                        Our passionate team of bibliophiles handpicks each title, ensuring our collection represents the
+                        finest in literature across all genres. From rare first editions to contemporary bestsellers, we
+                        are your trusted literary companion.
+                    </p>
+
+                    <div class="quote-box">
+                        <p class="quote">“Where every book finds its reader”</p>
+                        <div class="quote-footer">
+                            <div class="line"></div>
+                            <span>The BookHaven Promise</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT CONTENT -->
+                <div class="about-right">
+                    <!-- Stats -->
+                    <div class="stats-grid">
+                        <div class="stat amber">
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">Years of Service</div>
+                        </div>
+
+                        <div class="stat dark">
+                            <div class="stat-number">50K+</div>
+                            <div class="stat-label">Book Lovers</div>
+                        </div>
+
+                        <div class="stat amber-light">
+                            <div class="stat-number">15K+</div>
+                            <div class="stat-label">Curated Titles</div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial -->
+                    <div class="testimonial">
+                        <div class="quote-mark">"</div>
+
+                        <div class="stars">
+                            <i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+
+                        <p class="testimonial-text">
+                            BookHaven is more than a bookstore—it's a cultural institution. The staff's knowledge is
+                            encyclopedic, and their recommendations have introduced me to authors I never would have
+                            discovered on my own.
+                        </p>
+
+                        <div class="author">
+                            <img src="/main folder/htdocs/bookheaven/nima.jpg" alt="Nima">
+                            <div>
+                                <div class="name">Moy Sonima</div>
+                                <div class="role">Owner of the shop</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <footer class="site-footer">
+        <!-- Decorative borders -->
+        <div class="footer-border top"></div>
+        <div class="footer-border bottom"></div>
+
+        <div class="footer-corner tl"></div>
+        <div class="footer-corner tr"></div>
+
+        <div class="footer-container">
+            <!-- Main Grid -->
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div>
+                    <div class="footer-logo">BookHaven</div>
+                    <p class="footer-desc">
+                        Your trusted literary companion since 1995. Curating exceptional reading experiences for
+                        passionate book lovers worldwide.
+                    </p>
+
+                    <div class="footer-divider">
+                        <span></span>
+                        <i class="ri-book-open-line"></i>
+                        <span></span>
+                    </div>
+                </div>
+
+                <!-- Explore -->
+                <div>
+                    <h3 class="footer-title">Explore</h3>
+                    <ul class="footer-links">
+                        <li><a href="#new-arrivals"><i class="ri-arrow-right-s-line"></i>New Arrivals</a></li>
+                        <li><a href="#bestsellers"><i class="ri-arrow-right-s-line"></i>Bestsellers</a></li>
+                        <li><a href="#events"><i class="ri-arrow-right-s-line"></i>Events</a></li>
+                        <li><a href="#about"><i class="ri-arrow-right-s-line"></i>About Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Hours -->
+                <div>
+                    <h3 class="footer-title">Library Hours</h3>
+                    <ul class="hours-list">
+                        <li><span>Monday – Friday</span><span>9AM – 8PM</span></li>
+                        <li><span>Saturday</span><span>10AM – 6PM</span></li>
+                        <li><span>Sunday</span><span>12PM – 5PM</span></li>
+                    </ul>
+
+                    <div class="footer-quote">
+                        <p>"A room without books is like a body without a soul"</p>
+                        <span>— Cicero</span>
+                    </div>
+                </div>
+
+                <!-- Connect -->
+                <div>
+                    <h3 class="footer-title">Connect</h3>
+
+                    <div class="contact-list">
+                        <a href="mailto:hello@bookhaven.com">
+                            <span class="icon"><i class="ri-mail-line"></i></span>
+                            hello@bookhaven.com
+                        </a>
+                        <a href="tel:+1234567890">
+                            <span class="icon"><i class="ri-phone-line"></i></span>
+                            +1 (234) 567-890
+                        </a>
+                    </div>
+
+                    <div class="socials">
+                        <a href="#"><i class="ri-instagram-line"></i></a>
+                        <a href="#"><i class="ri-facebook-fill"></i></a>
+                        <a href="#"><i class="ri-twitter-x-line"></i></a>
+                        <a href="#"><i class="ri-youtube-fill"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="footer-line"></div>
+
+            <!-- Bottom -->
+            <div class="footer-bottom">
+                <div class="legal">
+                    <span>© 2026 BookHaven. All rights reserved.</span>
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                </div>
+
+                <a class="powered" href="https://readdy.ai" target="_blank">Powered by Readdy</a>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Book Store Dashboard</title>
+  <link rel="stylesheet" href="stylemenu.css" />
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar editorial-nav">
+    <div class="nav-left">
+      <h1>BookHeaven</h1>
+    </div>
+
+    <ul class="nav-links nav-center">
+      <li>Featured Books</li>
+      <li>Categories</li>
+      <li>About us</li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="#" class="nav-action" id="userBtn" title="User">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </a>
+
+      <a href="#" class="nav-action" id="loginBtn" title="Log in">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <path d="M15 3h4a1 1 0 0 1 1 1v4"></path>
+          <path d="M10 14l5-5-5-5"></path>
+          <path d="M21 14v6a1 1 0 0 1-1 1H4"></path>
+        </svg>
+      </a>
+
+      <a href="#" class="nav-action" id="cartBtn" title="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <path d="M6 6h15l-1.5 9h-12z"></path>
+          <circle cx="9" cy="20" r="1"></circle>
+          <circle cx="18" cy="20" r="1"></circle>
+        </svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </a>
+    </div>
+  </nav>
+
+
+  <!-- Menu Buttons -->
+  <div class="menu-buttons">
+    <input type="text" id="searchInput" placeholder="Search title..." onkeyup="filterProducts()" />
+    <button onclick="filterCategory('All')">All</button>
+    <button onclick="filterCategory('Horror')">Horror</button>
+    <button onclick="filterCategory('Novel')">Novel</button>
+    <button onclick="filterCategory('Mystery')">Mystery</button>
+  </div>
+
+  <!-- Product Grid -->
+  <div class="product-container" id="productContainer"></div>
+  <div class="product-card">
+  </div>
+
+  <!-- Cart Modal -->
+  <div class="cart-modal" id="cartModal">
+    <div class="cart-modal-content">
+      <div class="cart-modal-header">
+        <h2>Shopping Cart</h2>
+        <button class="close-btn" onclick="closeCartModal()">&times;</button>
+      </div>
+      <div class="cart-list" id="cartList">
+        <p style="text-align:center;padding:20px;">Your cart is empty</p>
+      </div>
+      <div class="cart-modal-footer">
+        <button class="checkout-btn">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
